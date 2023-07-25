@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Sample Sheet</title>
+</head>
+<body>
+    <h1>Testing</h1>
+    <script>
+
+        // links
+
+        // https://www.w3schools.com/jsref/default.asp
+        // https://developer.mozilla.org/en-US/
+
+
+
+        /* This is a commented
+        block of code.
+        You can select some code
+        and in Visual Studio Code,
+        press alt+shft+a
+        and that will comment out 
+        whatever you have selected */
+
+        // These are some variables and a simple if else statement. try playing around with the values and the inputs in the if else statement.
+
+        var red = true;
+        var blue = false;
+        var green;
+        var myNum = 5;
+        var otherNum = 6;
+        var notNum = "chicken";
+
+        var myValue = notNum - myNum; // because myNum and notNum return NaN, JS treats this as false
+
+        if(myValue){
+            console.log("the statement is true");
+        }
+        else {
+            console.log("the statement is false");
+            console.log(myValue);
+        }
+
+        // This is an else if statement. It has an array: colors, and a selection: selectedColor. The statement is looking at the selected color and logging in the console a different output depending on which color is selected.
+
+        var colors = ['red', 'green', 'blue', 'yellow']; // this is an array
+        var selectedColor = colors[4];
+
+        if(selectedColor == 'red'){
+            console.log("the color is red");
+        }
+        else if(selectedColor == 'green'){
+            console.log("the color is green");
+        }
+        else if(selectedColor == 'blue'){
+            console.log("the color is blue");
+        }
+        else {
+            console.log("the color is yellow");
+        }
+
+        // This is a switch statement which does the same thing as an else if statement but is cleaner and easier to read
+
+        switch(selectedColor){
+            case "red": console.log("the color is red"); break;
+            case "green": console.log("the color is green"); break;
+            case "blue": console.log("the color is blue"); break;
+            case "yellow": console.log("the color is yellow"); break;
+            default: console.log("There was an error you dimwit"); // this is what the console is logging right now because the selectedColor is 4.
+        }
+
+        // this is an OR statement. The double pipes || are used to check if any of these variables are true
+
+        var goodMood = true;
+        var gotSleep = false;
+        var gotBeer = true;
+
+        if(goodMood || gotSleep || gotBeer){
+            console.log("It is a good day today");
+        }
+        else {
+            console.log("I am grumpy");
+        }
+
+        // this is an AND statement. The double ampersands && checks if both variables are true
+
+        var hadBreakfast = true;
+        var hadLunch = true;
+
+        if(hadBreakfast && hadLunch){
+            console.log("I am full");
+        }
+        else {
+            consol.log("I am hungry");
+        }
+
+        // This is a loop. this particular loop will console.log the numbers from 0 to 9. As soon as the loop hits 10, it will stop
+
+        for(var i = 0; i < 10; i++){ // i++ is a shortcut for i = i+1. In this loop, this will add 1 to the number of the variable i until it is no longer less than 10.
+            console.log(i);
+        }
+
+        // This is a loop that will log each of the colors in the array
+
+        var colorsArray = ['red', 'blue', 'yellow', 'green', 'purple', 'orange'];
+
+        for(var i = 0; i < colorsArray.length; i++){ // by using colorsArray.length, I'm pulling the length of the array. So no matter how many colors I add the array, this code will always work.
+            console.log(colorsArray[i]);
+        }
+
+        // the For .. Of Loop is used specifically for use with arrays
+
+        var food = ['grapes', 'cheese', 'bread', 'olives'];
+
+        for(var eachItem of food){
+            console.log(eachItem);
+        }
+
+        // strings as arrarys
+        // this loop will console.log each letter of the string as if it was an array. It's taking the var i and starting it's value at 0. Then it will console.log the value of i and add 1. This will systematically go through the whole string until each letter is logged. 
+
+        var words = "A string can be treated like an array";
+
+        for(var i=0; i<words.length; i++){
+            console.log(words[i]);
+        }
+
+        // this is a While loop
+
+        var incrementor = 0;
+        var text = '';
+
+        while(incrementor < 10){
+            text += 'The incrementor has gone up to ' + incrementor + '\n'; // the \n will add a new line. The + in this instance is concatenating the strings
+            incrementor++
+        }
+        console.log(text); // as opposed to the for loops above, this while loop will only console.log once. So the \n was needed to create new lines on a single log.
+
+        // this is a while loop written with a Template Literal
+
+        var inc = 0;
+        var textOutput = '';
+
+        while(inc < 11){
+            textOutput += `The incrementor is at ${inc}, and the incrementor squared is at ${inc*inc} \n`; // the syntax for template literals can be use for variables and expressions
+            inc++
+        }
+        console.log(textOutput);
+
+
+
+
+        // The following sections are self determined
+
+        // this section I'm going to use string methods to convert a string from lower case to upper case
+
+        var myString = "I am really hungry for some";
+
+        console.log(myString);
+
+        var myUpperString = myString.toUpperCase(); // creates a new variable that's exactly the same as myString but with upper case characters 
+
+        console.log(myUpperString);
+
+        // now I'm going to do some surgery to the string
+
+        var reallyLocation = myString.search('really'); // finds where in the string 'really' begins
+        console.log(reallyLocation); // outputs 5
+
+        var specialWord = myString.substr(reallyLocation, 6); // .substr pulls out whatever is within the specified range. The first value is the start of the range, the second value is how many characters after the start of the range to pull. 
+        console.log(specialWord); // outputs really because that's the characters that was in the range that was extracted. 
+
+        specialWord = specialWord.toUpperCase(); // takes the extracted word, really and converts it to uppercase
+        var newString = myString.replace('really', specialWord); // .replace will replace the first value with the second. In this case, the first value is really, and the second is the variable specialWord that we had extracted earlier and capitalized
+        console.log(newString); // outputs myString but with only the word really in capital letters 
+
+        // this section i'm going to make an array of food and add food items to the end of the myString variable created earlier
+
+        var foods = ['tacos', 'sushi', 'thai', 'burgers']; // an array of food
+
+        console.log(newString + " " + foods[0]); // logs the newString followed by a space followed by the first item in the food array
+        console.log(`${newString} ${foods[foods.length-1]}`); // uses the string literal syntax to log the newString followed by a space followed by the last item in the food array
+
+        // this section i'm going to make a loop that will print out in the console each item in the food array
+
+        for(var everyItem of foods){ // a loop that will print out each item in the foods array
+            console.log(newString + ' ' + everyItem); // prints out the newString followed by a space followed by each item in the foods array
+        }
+
+        // this section if the index of food is an even number, i convert it to uppercase
+
+        for(var i=0; i<foods.length; i++){
+
+            if(i % 2 === 0){ // check if the incrementor is even
+                console.log(`${newString} ${foods[i].toUpperCase()}`); // if it's even, make the array element uppercase
+            }
+            else {  // otherwise, keep it lowercase
+                console.log(`${newString} ${foods[i]}`); 
+            }
+
+        }
+
+
+    </script>
+</body>
+</html>

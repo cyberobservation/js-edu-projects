@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Examples</title>
+</head>
+<body>
+    <h1>DOM Examples</h1>
+
+    <p id="one">Here is a paragraph with a unique ID</p>  <!--JS makes this paragraph red-->
+
+    <p>Here is a paragraph</p> <!--JS will make each paragraph red-->
+    <p>Here is another paragraph</p>
+    <p>Here is a third paragraph</p>
+
+    <p class="special">This is a special paragraph</p> <!--JS will make this paragraph blue-->
+    <p>This is a regular paragraph</p>
+    <p class="special">This is another special paragraph</p> <!--JS will make this paragraph blue-->
+
+    <div id="specialDiv">
+        <p class="cheese">This is a cheesey paragraph</p> <!--JS will make this paragraph orange-->
+        <p>This a very normal paragraph</p>
+        <p class="cheese">This is another normal paragraph</p>
+    </div>
+
+    <div id="greenP">
+        <p>Paragraph</p>
+        <p>Paragraph</p>
+        <p>Paragraph</p>
+    </div>
+
+    <script>
+        //getElementById
+/*         document.getElementById('one').style.color= "red"; //makes paragraph with id="one" red */
+
+        //getElementsByTagName
+/*         var myP = document.getElementsByTagName('p'); //this variable points JS to the P tag in the HTML
+
+        //JS treats each P as an arrary so a loop is needed to apply the desired effect to each instance of P. JS treats anything that it gathers as collection of elements as an array
+        for (var i=0; i<myP.length; i++){ //a loop is necessary to change each occurence of the P tag to red. This loop cycles through each instance of P and changes it to red one at a time
+            myP[i].style.color = "red";
+            alert(`showing paragraph ${i}`); //this alert pops up after each instance of the loop to show how JS cycles through them (best viewed in Firefox)
+        } */
+
+        //getElementsByClassName
+       // var myClass = document.getElementsByClassName("special"); //this variable points JS to the class="special" in the HTML
+
+/*      for (var i=0; i<myClass.length; i++){ // this loop is necessary to change each instance of class="special" to blue. You need sometihng to actually apply the change and a loop is a great way to ensure you hit each instance
+            myClass[i].style.color = "blue";
+            alert(`showing paragraph ${i}`); //this alert shows us each instance as JS runs through each instance of class="special" (best viewed in FF)
+        } */
+
+        //myClass[0].style.color = "blue"; // as an alternative to the loop, if you know you only have one instance, you can just reference it directly. In this case, it's referencing the first instance of the class="special" The benefit of a loop though is that you can add additional instances to your HTML and you won't have to change your JS
+        
+/*         //querySelector
+        var myText = document.querySelector("#specialDiv .cheese"); //selects the .cheese class within the #specialDiv ID; You have to use CSS syntax when passing in your selection with querySelector
+
+        myText.style.color = "orange"; //makes the .cheese class orange */
+
+        var myPs = document.querySelectorAll("#greenP p"); //selects P within greenP ID
+        for(var i=0;i<myPs.length;i++){ //turns each P within greenP green
+            myPs[i].style.color = "green";
+        }
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Basic Challenges: Bonus Challenge</title>
+</head>
+<body>
+    <h1>JavaScript Basic Challenges</h1>
+    <h2>Bonus Challenge</h2>
+
+<script>
+
+    var userColor = prompt('Enter a color', '');
+
+    if(userColor == 'red' || userColor == 'blue' || userColor == 'yellow' || userColor == 'Red' || userColor == 'Blue' || userColor == 'Yellow'){
+
+        console.log(`You picked a primary color: ${userColor}`);
+
+    } else if(userColor == 'green' || userColor == 'orange' || userColor == 'purple' || userColor == 'Green' || userColor == 'Orange' || userColor == 'Purple'){
+
+        console.log(`You FAILED. "${userColor}" is a secondary color!`);
+
+    } else {
+
+        console.log(`ERROR: "${userColor}" is not a color, dumbass!!!`);
+
+    };
+</script>
+
+</body>
+</html>

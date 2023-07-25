@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Sample Sheet 2</title>
+</head>
+<body>
+    <h1>Testing 2</h1>
+    <script>
+
+        // functions
+
+        function doStuff(){
+            var myString = "Here is a string of text";
+            var upperString = myString.toUpperCase();
+            console.log(myString);
+            console.log(upperString);
+        }
+
+        // Commented out function so it doesn't run/Users/davidbjerre/Documents/Coding/JavaScript/Coursera/jssamplesheet2.html
+       //  doStuff();
+
+        // turning challenge 7 into a function
+
+        function checkNum(){
+            var number = prompt('Enter a whole number:', '');
+            if(number<10){
+                console.log(`The number ${number} is less than 10!`);
+                for(var i=0; i<10; i++){ 
+                    console.log(`Here is a ${i}`);
+                }
+            } else if(number>9){
+                console.log(`YOU DID IT! The number ${number} is bigger than 10!`);
+            } else {
+                console.log(`ERROR: "${number}" is not a number!!!`);
+            };
+        }
+
+        // Commented out function so it doesn't run
+        // checkNum();
+
+        function upperMessage(message){
+            var upperMessage = message.toUpperCase();
+            console.log(upperMessage);
+        }
+
+        // Commented out function so it doesn't run
+        // upperMessage("Here is a message");
+
+        function addNum(num1, num2){
+            var sum = num1 + num2;
+            console.log(sum);
+        }
+
+       // addNum(2,2);
+
+       function returnSum(num1, num2){
+            var sum = num1 + num2;
+            return sum;
+        }
+
+        // console.log(returnSum(3,5));
+
+       // console.log(Math.random()); // generates a random number between 0 and almost 1
+
+       /* var foods = ["cheese","chicken","grapes","burgers"]; //an array of food items
+
+        function randomInt(min,max){ //function that returns a random number
+            var numOfValues = max - min +1; //establishes the number of values, not the range
+            var randomNum = Math.random(); //uses javascripts built in random number generator that creates a random number between 0 and almost 1
+            var randomVal = randomNum * numOfValues; //multiplies the number of values with the random number to create a number within whatever our range is
+            var roundedRandomVal = Math.floor(randomVal); //rounds down our random number to a nice flat integer
+            var finalNum = min + roundedRandomVal; //adds the nim value to our random number which will give us a number between our minmum and maximum numbers
+
+            return finalNum; //returns the final number after all operations
+        }
+
+        console.log(foods[randomInt(0,3)]); //console logs a random item within the foods array. Note that we have to set the min and max values to equal the length of the array */
+
+        //The following is the above, commented out function, but refactored:
+
+        var foods = ["cheese","chicken","grapes","burgers"]; //an array of food items
+
+        function randomInt(min,max){ 
+
+            //creating a random integer from min and max
+            return Math.floor( (max-min+1) * Math.random()) + min; 
+        }
+
+        console.log(foods[randomInt(0,3)]); //console logs a random item within the foods array. Note that we have to set the min and max values to equal the length of the array
+
+        var greeting = function(){
+            console.log("hello from the function");
+        }
+
+        greeting();
+
+    </script>
+</body>
+</html>
